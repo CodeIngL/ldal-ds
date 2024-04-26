@@ -1,0 +1,2 @@
+local=com.codeL.data.ds.atom.handle.LocalDsConfHandler
+apolloPullPush=com.codeL.data.ds.atom.handle.ApolloPullPushDsConfHandler
