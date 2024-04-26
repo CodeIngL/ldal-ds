@@ -24,18 +24,39 @@
 
 <!--    <bean id="ds2" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url"
-                  value="jdbc:mysql://localhost:3306/ds3?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ds2?dsInstanceId=sabdhdejf&amp;dsAppName=ldal-ds-example&amp;dsDbKey=ixdfgavce&amp;dsMode=local&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value="123456"/>
     </bean>-->
+    <bean id="ds2" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ds2?dsInstanceId=sabdhdejf&amp;dsAppName=ldal-ds-example&amp;dsDbKey=ixdfgavce&amp;dsMode=local&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+
+        <property name="initialSize" value="${db.druid.initialSize:5}"/>
+        <property name="minIdle" value="${db.druid.minIdle:5}"/>
+
+        <property name="maxWait" value="${db.druid.maxWait:60000}"/>
+
+        <property name="timeBetweenEvictionRunsMillis" value="${db.druid.timeBetweenEvictionRunsMillis:60000}"/>
+
+        <property name="minEvictableIdleTimeMillis" value="${db.druid.minEvictableIdleTimeMillis:300000}"/>
+
+        <property name="testWhileIdle" value="${db.druid.testWhileIdle:false}"/>
+        <property name="testOnBorrow" value="${db.druid.testOnBorrow:false}"/>
+        <property name="testOnReturn" value="${db.druid.testOnReturn:false}"/>
+
+        <property name="poolPreparedStatements" value="${db.druid.poolPreparedStatements:false}"/>
+    </bean>
 
 
-    <bean id="ds2" class="com.codeL.data.ds.atom.AtomDataSource" destroy-method="close">
+
+<!--    <bean id="ds2" class="com.codeL.data.ds.atom.AtomDataSource" destroy-method="close">
         <property name="appName" value="ldal-ds-example"/>
         <property name="dbKey" value="ixdfgavce"/>
         <property name="handlerType" value="local"/>
-    </bean>
+    </bean>-->
 
 
 </beans>
