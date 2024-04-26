@@ -5,13 +5,13 @@
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="ds2" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close" primary="true">
+<!--    <bean id="ds3" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close" primary="true">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url"
                   value="jdbc:mysql://localhost:3306/ds2?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value="123456"/>
-    </bean>
+    </bean>-->
 
 <!--    <bean id="ds3" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
@@ -22,7 +22,7 @@
     </bean>-->
 
 
-<!--    <bean id="ds3" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+<!--    <bean id="ds2" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url"
                   value="jdbc:mysql://localhost:3306/ds3?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"/>
@@ -31,12 +31,10 @@
     </bean>-->
 
 
-    <bean id="ds3" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url"
-                  value="jdbc:mysql://localhost:3306/ds3?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"/>
-        <property name="username" value="root"/>
-        <property name="password" value="123456"/>
+    <bean id="ds2" class="com.codeL.data.ds.atom.AtomDataSource" destroy-method="close">
+        <property name="appName" value="ldal-ds-example"/>
+        <property name="dbKey" value="ixdfgavce"/>
+        <property name="handlerType" value="local"/>
     </bean>
 
 
