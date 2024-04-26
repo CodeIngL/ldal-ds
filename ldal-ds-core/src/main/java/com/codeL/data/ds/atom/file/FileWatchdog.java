@@ -55,11 +55,13 @@ public abstract class FileWatchdog extends Thread {
     long lastModif = 0;
     boolean warnedAlready = false;
     boolean interrupted = false;
+    FileReloader reloader;
 
-    protected FileWatchdog(String filename) {
+    protected FileWatchdog(String filename, FileReloader reloader) {
         super("FileWatchdog");
         this.filename = filename;
         file = new File(filename);
+        this.reloader = reloader;
         setDaemon(true);
         checkAndConfigure();
     }

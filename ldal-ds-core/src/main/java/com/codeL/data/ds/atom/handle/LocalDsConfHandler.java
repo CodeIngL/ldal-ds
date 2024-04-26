@@ -80,8 +80,8 @@ public class LocalDsConfHandler extends AbstractDsConfHandle implements Lifecycl
     }
 
     public void rebuild(String fileName, String content) {
-        YamlSingleConfig config = null;
         try {
+            YamlSingleConfig config = YamlSingleConfig.unmarshal(content.getBytes());;
             DataSource preDataSource = this.dataSource;
             DataSource curDataSource = config.getDataSource();
             Map<String, String> propConf = config.getProps();
@@ -95,7 +95,7 @@ public class LocalDsConfHandler extends AbstractDsConfHandle implements Lifecycl
             }
             this.dataSource = curDataSource;
             postDatasourceEvent(new DatasourceChangeEvent(preDataSource, curDataSource, subKey));
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             logger.error("refresh datasource:{} failed. newValue is {}", fileName, content);
             throw new DsNestableRuntimeException(e);
         }
